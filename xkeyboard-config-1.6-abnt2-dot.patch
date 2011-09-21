@@ -1,0 +1,26 @@
+From fd7fa190c4f817bacac23c98e43c61b60064bffd Mon Sep 17 00:00:00 2001
+From: Sergey V. Udaltsov <svu@gnome.org>
+Date: Mon, 15 Jun 2009 23:00:47 +0100
+Subject: [PATCH] Fixed ABNT2-specific mapping for the dot key
+
+http://bugs.freedesktop.org/show_bug.cgi?id=22303
+---
+ symbols/inet |    2 +-
+ 2 files changed, 6 insertions(+), 1 deletions(-)
+
+diff --git a/symbols/inet b/symbols/inet
+index 6a84e3d..7300e76 100644
+--- a/symbols/inet
++++ b/symbols/inet
+@@ -122,7 +122,7 @@ xkb_symbols "evdev" {
+ 
+ //  key <I120>   {      [ ]       }; // KEY_MACRO 
+     key <I126>   {      [ plusminus             ]       };
+-    key <I129>   {      [ KP_Separator          ]       };
++    key <I129>   {      [ KP_Decimal            ]       };
+     key <I147>   {      [ XF86MenuKB            ]       };
+     key <I148>   {      [ XF86Calculator        ]       };
+ //  key <I149>   {      [ ]       }; // KEY_SETUP
+-- 
+1.6.5.2
+

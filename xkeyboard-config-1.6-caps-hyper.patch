@@ -1,0 +1,60 @@
+From 6b99bd6e4dca53a7143b87f5f5a9026ed2a6f00e Mon Sep 17 00:00:00 2001
+From: Peter Hutterer <peter.hutterer@who-t.net>
+Date: Tue, 18 Aug 2009 09:04:11 +1000
+Subject: [PATCH] add caps:hyper
+
+http://bugs.freedesktop.org/show_bug.cgi?id=23356
+
+Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+---
+ rules/base.o_s.part |    1 +
+ rules/base.xml.in   |    6 ++++++
+ symbols/capslock    |    6 ++++++
+ 3 files changed, 13 insertions(+), 0 deletions(-)
+
+diff --git a/rules/base.o_s.part b/rules/base.o_s.part
+index 175a214..8305bb6 100644
+--- a/rules/base.o_s.part
++++ b/rules/base.o_s.part
+@@ -54,6 +54,7 @@
+   caps:escape		=	+capslock(escape)
+   caps:backspace	=	+capslock(backspace)
+   caps:super		=	+capslock(super)
++  caps:hyper		=	+capslock(hyper)
+   ctrl:nocaps		=	+ctrl(nocaps)
+   ctrl:swapcaps		=	+ctrl(swapcaps)
+   ctrl:ctrl_ac		=	+ctrl(ctrl_ac)
+diff --git a/rules/base.xml.in b/rules/base.xml.in
+index 0958687..4628c4c 100644
+--- a/rules/base.xml.in
++++ b/rules/base.xml.in
+@@ -4774,6 +4774,12 @@
+       </option>
+       <option>
+         <configItem>
++          <name>caps:hyper</name>
++          <_description>Make CapsLock an additional Hyper</_description>
++        </configItem>
++      </option>
++      <option>
++        <configItem>
+           <name>caps:shiftlock</name>
+           <_description>CapsLock toggles Shift so all keys are affected</_description>
+         </configItem>
+diff --git a/symbols/capslock b/symbols/capslock
+index 9a2307e..9a01b4a 100644
+--- a/symbols/capslock
++++ b/symbols/capslock
+@@ -47,3 +47,9 @@ xkb_symbols "super" {
+     modifier_map Mod4   { <CAPS> };
+ };
+ 
++partial hidden modifier_keys
++xkb_symbols "hyper" {
++    key <CAPS> {        [       Hyper_L  ]       };
++    modifier_map Mod4   { <CAPS> };
++};
++
+-- 
+1.6.3.rc1.2.g0164.dirty
+

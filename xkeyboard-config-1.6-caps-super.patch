@@ -1,0 +1,59 @@
+From 0ba57d95704764f7c3d3fb9694e2479d98dac1b8 Mon Sep 17 00:00:00 2001
+From: Sergey V. Udaltsov <svu@gnome.org>
+Date: Fri, 12 Jun 2009 00:50:57 +0100
+Subject: [PATCH] added caps:super
+
+http://bugs.freedesktop.org/show_bug.cgi?id=22184
+---
+ ChangeLog           |    5 +++++
+ rules/base.o_s.part |    1 +
+ rules/base.xml.in   |    6 ++++++
+ symbols/capslock    |    6 ++++++
+ 4 files changed, 18 insertions(+), 0 deletions(-)
+
+diff --git a/rules/base.o_s.part b/rules/base.o_s.part
+index d3078bf..175a214 100644
+--- a/rules/base.o_s.part
++++ b/rules/base.o_s.part
+@@ -53,6 +53,7 @@
+   caps:swapescape	=	+capslock(swapescape)
+   caps:escape		=	+capslock(escape)
+   caps:backspace	=	+capslock(backspace)
++  caps:super		=	+capslock(super)
+   ctrl:nocaps		=	+ctrl(nocaps)
+   ctrl:swapcaps		=	+ctrl(swapcaps)
+   ctrl:ctrl_ac		=	+ctrl(ctrl_ac)
+diff --git a/rules/base.xml.in b/rules/base.xml.in
+index aaf5358..f4d60e7 100644
+--- a/rules/base.xml.in
++++ b/rules/base.xml.in
+@@ -4775,6 +4775,12 @@
+       </option>
+       <option>
+         <configItem>
++          <name>caps:super</name>
++          <_description>Make CapsLock an additional Super</_description>
++        </configItem>
++      </option>
++      <option>
++        <configItem>
+           <name>caps:shiftlock</name>
+           <_description>CapsLock toggles Shift so all keys are affected</_description>
+         </configItem>
+diff --git a/symbols/capslock b/symbols/capslock
+index 58599c6..9a2307e 100644
+--- a/symbols/capslock
++++ b/symbols/capslock
+@@ -41,3 +41,9 @@ xkb_symbols "backspace" {
+     key <CAPS> {        [       BackSpace  ]       };
+ };
+ 
++partial hidden modifier_keys
++xkb_symbols "super" {
++    key <CAPS> {        [       Super_L  ]       };
++    modifier_map Mod4   { <CAPS> };
++};
++
+-- 
+1.6.3.rc1.2.g0164.dirty
+
